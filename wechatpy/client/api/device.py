@@ -158,9 +158,9 @@ class WeChatDevice(BaseWeChatAPI):
         :param device_id: 设备id
         :return: 返回的 JSON 数据包
         """
-        return self._post(
+        return self._get(
             'get_stat',
-            data={'device_id': device_id}
+            params={'device_id': device_id}
         )
 
     def verify_qrcode(self, ticket):
@@ -187,9 +187,9 @@ class WeChatDevice(BaseWeChatAPI):
         :param device_id: 设备id
         :return: 返回的 JSON 数据包
         """
-        return self._post(
+        return self._get(
             'get_openid',
-            data={
+            params={
                 'device_type': device_type,
                 'device_id': device_id
             }
@@ -206,9 +206,9 @@ class WeChatDevice(BaseWeChatAPI):
         :param user_id: 要查询的用户的openid
         :return: 返回的 JSON 数据包
         """
-        return self._post(
+        return self._get(
             'get_bind_device',
-            data={'openid': user_id}
+            params={'openid': user_id}
         )
 
     get_bind_device = get_binded_devices
